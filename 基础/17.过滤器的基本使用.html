@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- 添加一个竖线， 表示添加一个过滤器 -->
+      <p :title="info | capitalize">{{message | capitalize}}</p>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          message: 'hello vue.js',
+          info: 'title info',
+        },
+        filters: {
+          capitalize(str) {
+            // 首字母大学， 拼接上后面的字符串
+            return str.charAt(0).toUpperCase() + str.slice(1)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
